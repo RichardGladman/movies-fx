@@ -1,13 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.net.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
 
-<GridPane fx:controller="com.thefifthcontinent.moviesfx.controllers.MainController" 
-    xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
-<padding><Insets top="25" right="25" bottom="10" left="25"/></padding>
+  This file is available and licensed under the following license:
 
-</GridPane>
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thefifthcontinent.moviesfx.controllers.MainController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem fx:id="menu_save" mnemonicParsing="false" onAction="#saveMovies" text="Save" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem fx:id="menu_quit" mnemonicParsing="false" onAction="#quit" text="Quit" />
+          </items>
+        </Menu>
+            <Menu mnemonicParsing="false" text="Actors">
+              <items>
+                <MenuItem fx:id="menu_add_actor" mnemonicParsing="false" onAction="#AddActor" text="Add" />
+                  <MenuItem fx:id="menu_edit_actor" mnemonicParsing="false" onAction="#editActor" text="Edit" />
+                  <MenuItem fx:id="menu_delete_actor" mnemonicParsing="false" onAction="#deleteActor" text="Delete" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Directors">
+              <items>
+                <MenuItem fx:id="menu_add_director" mnemonicParsing="false" onAction="#addDirector" text="Add" />
+                  <MenuItem fx:id="menu_edit_director" mnemonicParsing="false" onAction="#editDirector" text="Edit" />
+                  <MenuItem fx:id="menu_delete_director" mnemonicParsing="false" onAction="#deleteDirector" text="Delete" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Movies">
+              <items>
+                <MenuItem fx:id="menu_add_movie" mnemonicParsing="false" onAction="#addMovie" text="Add" />
+                  <MenuItem fx:id="menu_edit_movie" mnemonicParsing="false" onAction="#editMovie" text="Edit" />
+                  <MenuItem fx:id="menu_delete_movie" mnemonicParsing="false" onAction="#deleteMovie" text="Delete" />
+              </items>
+            </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS" />
+  </children>
+</VBox>
