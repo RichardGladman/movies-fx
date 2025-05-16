@@ -45,30 +45,21 @@
       <menus>
         <Menu mnemonicParsing="false" text="File">
           <items>
-            <MenuItem fx:id="menu_save" mnemonicParsing="false" onAction="#saveMovies" text="Save" />
+            <MenuItem fx:id="menu_save" mnemonicParsing="false" onAction="#onSaveMoviesClicked" text="Save" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem fx:id="menu_quit" mnemonicParsing="false" onAction="#quit" text="Quit" />
+            <MenuItem fx:id="menu_quit" mnemonicParsing="false" onAction="#onQuitClicked" text="Quit" />
           </items>
         </Menu>
-            <Menu mnemonicParsing="false" text="Actors">
+            <Menu mnemonicParsing="false" text="View">
               <items>
-                <MenuItem fx:id="menu_add_actor" mnemonicParsing="false" onAction="#AddActor" text="Add" />
-                  <MenuItem fx:id="menu_edit_actor" mnemonicParsing="false" onAction="#editActor" text="Edit" />
-                  <MenuItem fx:id="menu_delete_actor" mnemonicParsing="false" onAction="#deleteActor" text="Delete" />
+                <MenuItem fx:id="menu_actors" mnemonicParsing="false" onAction="#onActorsClicked" text="Actors" />
+                  <MenuItem fx:id="menu_directors" mnemonicParsing="false" onAction="#onDirectorsClicked" text="Directors" />
+                  <MenuItem fx:id="menu_movies" mnemonicParsing="false" onAction="#onMoviesClicked" text="Movies" />
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Directors">
+            <Menu mnemonicParsing="false" text="Help">
               <items>
-                <MenuItem fx:id="menu_add_director" mnemonicParsing="false" onAction="#addDirector" text="Add" />
-                  <MenuItem fx:id="menu_edit_director" mnemonicParsing="false" onAction="#editDirector" text="Edit" />
-                  <MenuItem fx:id="menu_delete_director" mnemonicParsing="false" onAction="#deleteDirector" text="Delete" />
-              </items>
-            </Menu>
-            <Menu mnemonicParsing="false" text="Movies">
-              <items>
-                <MenuItem fx:id="menu_add_movie" mnemonicParsing="false" onAction="#addMovie" text="Add" />
-                  <MenuItem fx:id="menu_edit_movie" mnemonicParsing="false" onAction="#editMovie" text="Edit" />
-                  <MenuItem fx:id="menu_delete_movie" mnemonicParsing="false" onAction="#deleteMovie" text="Delete" />
+                <MenuItem fx:id="menu_about" mnemonicParsing="false" onAction="#onAboutClicked" text="About" />
               </items>
             </Menu>
       </menus>
