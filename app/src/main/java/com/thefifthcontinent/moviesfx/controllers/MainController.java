@@ -4,21 +4,12 @@ import java.lang.management.PlatformLoggingMXBean;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.control.MenuItem;
+import javafx.scene.layout.BorderPane;
 
 public class MainController
 {
 	@FXML
-	private MenuItem menu_actors;
-	
-	@FXML
-	private MenuItem menu_directors;
-	
-	@FXML
-	private MenuItem menu_movies;
-	
-	@FXML
-	private MenuItem menu_about;
+	private BorderPane borderPane;
 	
 	@FXML
 	public void onSaveMoviesClicked()
@@ -35,7 +26,7 @@ public class MainController
 	@FXML
 	public void onActorsClicked()
 	{
-		
+
 	}
 	
 	@FXML
