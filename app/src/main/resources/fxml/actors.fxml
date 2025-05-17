@@ -8,13 +8,12 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thefifthcontinent.moviesfx.controllers.ActorController">
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
             <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="View" />
-            <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="Add" />
+            <Button fx:id="addButton" maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleAddButton" prefWidth="90.0" text="Add" />
             <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="Edit" />
             <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="Delete" />
          </children>
