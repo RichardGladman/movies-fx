@@ -12,16 +12,16 @@ import javafx.stage.Stage;
 
 public class ActorController
 {
+	private static Stage stage = new Stage();
+	
 	@FXML
 	private Button addButton;
 	
 	@FXML
 	public void handleAddButton()
 	{
-		Stage stage = new Stage();
-		
     	FXMLLoader loader = new FXMLLoader();
-    	loader.setLocation(getClass().getResource("/fxml/person.fxml"));
+    	loader.setLocation(getClass().getResource("/fxml/actorform.fxml"));
     	
     	try {
 			GridPane gridPane = loader.load();
@@ -34,8 +34,12 @@ public class ActorController
 			
 			stage.showAndWait();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}    	
+	}
+	
+	public static Stage getStage()
+	{
+		return stage;
 	}
 }
