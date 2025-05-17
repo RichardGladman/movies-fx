@@ -8,6 +8,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 
 public class MainController
 {
@@ -78,6 +79,16 @@ public class MainController
 	@FXML
 	public void onAboutClicked()
 	{
-		
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/fxml/about.fxml"));
+    	
+    	try {
+			VBox centerPane = loader.load();
+			borderPane.setCenter(centerPane);
+			App.getStage().setTitle("About - MoviesFX");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }
