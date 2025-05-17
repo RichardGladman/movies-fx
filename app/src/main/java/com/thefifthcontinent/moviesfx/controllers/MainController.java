@@ -61,6 +61,17 @@ public class MainController
 	@FXML
 	public void onMoviesClicked()
 	{
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/fxml/movies.fxml"));
+    	
+    	try {
+			BorderPane centerPane = loader.load();
+			borderPane.setCenter(centerPane);
+			App.getStage().setTitle("Manage Movies - MoviesFX");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 	
