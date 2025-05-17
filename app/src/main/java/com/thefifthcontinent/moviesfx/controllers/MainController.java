@@ -39,15 +39,23 @@ public class MainController
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-    	
-    	
+		}    	
 	}
 	
 	@FXML
 	public void onDirectorsClicked()
 	{
-		
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/fxml/directors.fxml"));
+    	
+    	try {
+			BorderPane centerPane = loader.load();
+			borderPane.setCenter(centerPane);
+			App.getStage().setTitle("Manage Directors - MoviesFX");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	@FXML
