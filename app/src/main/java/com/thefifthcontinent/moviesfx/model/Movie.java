@@ -7,16 +7,18 @@ public class Movie
 {
 	private String title;
 	private Category category;
+	private Format format;
 	private String certificate;
 	private int runningTime;
 	private List<Director> directors;
 	private List<Actor> actors;
 	
-	public Movie(String title, Category category, String certificate, int runningTime)
+	public Movie(String title, Category category, Format format, String certificate, int runningTime)
 	{
 		super();
 		this.title = title;
 		this.category = category;
+		this.format = format;
 		this.certificate = certificate;
 		this.runningTime = runningTime;
 		this.directors = new ArrayList<>();
@@ -53,6 +55,11 @@ public class Movie
 		return category;
 	}
 
+	public Format getFormat()
+	{
+		return format;
+	}
+
 	public String getCertificate()
 	{
 		return certificate;
@@ -71,6 +78,11 @@ public class Movie
 	public void setCategory(Category category)
 	{
 		this.category = category;
+	}
+
+	public void setFormat(Format format)
+	{
+		this.format = format;
 	}
 
 	public void setCertificate(String certificate)
@@ -109,16 +121,16 @@ public class Movie
 		String data = "%-50s %-10s %-4s %d".formatted(title, category, certificate, runningTime);
 
 		if (actors.size() > 0) {
-			data += "\nActors:\n";
+			data += "\nActors:" + System.lineSeparator();
 			for (Actor a: actors) {
-				data += a.getName() + "\n";
+				data += a.getName() + System.lineSeparator();
 			}
 		}
 		
 		if (directors.size() > 0) {
-			data += "Directors:\n";
+			data += "Directors:" + System.lineSeparator();
 			for (Director d: directors) {
-				data += d.getName() + "\n";
+				data += d.getName() + System.lineSeparator();
 			}
 		}
 		
