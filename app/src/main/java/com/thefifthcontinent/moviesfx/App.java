@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 public class App extends Application
 {
+	private static Stage stage;
+	
     public static void run(String[] args) 
     {
     	launch(args);
@@ -24,5 +26,11 @@ public class App extends Application
         primaryStage.setTitle("Movies FX");
         primaryStage.setScene(new Scene(root, 640, 480));
         primaryStage.show();
+        
+        stage = primaryStage;
+    }
+    
+    public static Stage getStage() {
+    	return stage;
     }
 }
