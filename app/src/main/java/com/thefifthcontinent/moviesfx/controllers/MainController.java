@@ -3,6 +3,8 @@ package com.thefifthcontinent.moviesfx.controllers;
 import java.io.IOException;
 
 import com.thefifthcontinent.moviesfx.App;
+import com.thefifthcontinent.moviesfx.util.DataHandler;
+import com.thefifthcontinent.moviesfx.util.FileHandler;
 
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -18,7 +20,14 @@ public class MainController
 	@FXML
 	public void onSaveMoviesClicked()
 	{
-		
+    	DataHandler dataHandler = DataHandler.getInstance();
+    	FileHandler fHandler = new FileHandler(System.getProperty("user.home") + "/Documents/moviesfx/", "movies.txt");
+    	
+    	try {
+    		fHandler.saveData(dataHandler.getActors(), dataHandler.getDirectors(), dataHandler.getMovies());
+    	} catch (RuntimeException e) {
+    		System.err.println("Failed to save data " + e.getMessage());
+    	}
 	}
 	
 	@FXML
