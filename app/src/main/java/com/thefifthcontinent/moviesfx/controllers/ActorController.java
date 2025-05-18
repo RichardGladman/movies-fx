@@ -66,7 +66,7 @@ public class ActorController
 	public void handleSearchButton()
 	{
 		Actor selectedActor = actorsListView.getSelectionModel().getSelectedItem();
-		Predicate<Actor> searchPredicate = (a) -> a.getName().toLowerCase().startsWith(searchTextField.getText().trim().toLowerCase());
+		Predicate<Actor> searchPredicate = (a) -> a.getName().toLowerCase().contains(searchTextField.getText().trim().toLowerCase());
 		Predicate<Actor> allPredicate = (a) -> !a.getName().isEmpty();
 		
 		if (searchTextField.getText().trim().isEmpty()) {
