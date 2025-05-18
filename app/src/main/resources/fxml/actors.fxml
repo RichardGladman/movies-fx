@@ -12,8 +12,11 @@
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
+            <Button fx:id="addButton" maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleAddButton" prefWidth="90.0" text="Add">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Button>
             <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="View" />
-            <Button fx:id="addButton" maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleAddButton" prefWidth="90.0" text="Add" />
             <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="Edit" />
             <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="Delete" />
          </children>
@@ -24,8 +27,8 @@
          <children>
             <HBox prefHeight="37.0" prefWidth="480.0" VBox.vgrow="NEVER">
                <children>
-                  <TextField HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" text="Search" />
+                  <TextField fx:id="searchTextField" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#handleSearchButton" text="Search" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" />
