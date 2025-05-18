@@ -2,10 +2,14 @@ package com.thefifthcontinent.moviesfx.controllers;
 
 import java.io.IOException;
 
+import com.thefifthcontinent.moviesfx.model.Actor;
+import com.thefifthcontinent.moviesfx.util.DataHandler;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -15,7 +19,15 @@ public class ActorController
 	private static Stage stage = new Stage();
 	
 	@FXML
+	private ListView<Actor> actorsListView;
+	
+	@FXML
 	private Button addButton;
+	
+	public void initialize()
+	{
+		actorsListView.setItems(DataHandler.getInstance().getActors());
+	}
 	
 	@FXML
 	public void handleAddButton()
