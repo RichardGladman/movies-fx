@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 
 public class ActorController
 {
-	private static Stage stage = new Stage();
+	private static Stage stage = null;
 	
 	@FXML
 	private ListView<Actor> actorsListView;
@@ -56,10 +56,39 @@ public class ActorController
 			GridPane gridPane = loader.load();
 			Scene scene = new Scene(gridPane);
 			
+			stage =  new Stage();
+			
 			stage.initOwner(addButton.getScene().getWindow());
 			stage.initModality(Modality.APPLICATION_MODAL);
 			stage.setScene(scene);
 			stage.setTitle("Add New Actor - MoviesFX");
+			
+			stage.showAndWait();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}    	
+	}
+	
+	@FXML
+	public void handleEditButton()
+	{
+		Actor actor = actorsListView.getSelectionModel().getSelectedItem();
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/fxml/actorform.fxml"));
+    	
+    	try {
+			GridPane gridPane = loader.load();
+			((ActorFormController)loader.getController()).setActor(actor);
+			((ActorFormController)loader.getController()).setMode("Edit");
+
+			Scene scene = new Scene(gridPane);
+			
+			stage  = new Stage();
+			
+			stage.initOwner(addButton.getScene().getWindow());
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.setScene(scene);
+			stage.setTitle("Edit Actor - MoviesFX");
 			
 			stage.showAndWait();
 		} catch (IOException e) {

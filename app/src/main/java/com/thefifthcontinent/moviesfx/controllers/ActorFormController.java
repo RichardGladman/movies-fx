@@ -18,6 +18,9 @@ public class ActorFormController
 	@FXML
 	private Button closeButton;
 	
+	private Actor actor = null;
+	private String mode = "add";
+	
 	@FXML
 	public void handleCloseButton()
 	{
@@ -28,12 +31,30 @@ public class ActorFormController
 	public void handleSaveButton()
 	{
 		String name = nameTextField.getText().trim();
-		Actor actor = new Actor(name);
 		
-		if (!name.equals("")) {
-			DataHandler.getInstance().getActors().add(actor);
+		if (actor == null) {
+			actor = new Actor(name);
+		} else {
+			actor.setName(name);
 		}
 		
-		nameTextField.clear();
+		if (!name.equals("")) {
+			if (mode.equals("add")) {
+				DataHandler.getInstance().getActors().add(actor);
+			}
+		}
+		
+		handleCloseButton();
+	}
+	
+	public void setActor(Actor actor)
+	{
+		this.actor = actor;
+		nameTextField.setText(actor.getName());
+	}
+	
+	public void setMode(String mode)
+	{
+		this.mode = mode;
 	}
 }
