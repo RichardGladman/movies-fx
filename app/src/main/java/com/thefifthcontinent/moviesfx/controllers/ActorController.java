@@ -19,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -125,6 +126,32 @@ public class ActorController
 			alert.setContentText("Cannot delete " + selectedActor.getName() + ". Present in movie.");
 			alert.showAndWait();
 		}
+	}
+	
+	@FXML
+	public void handleViewButton()
+	{
+		Actor actor = actorsListView.getSelectionModel().getSelectedItem();
+		
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/fxml/actorview.fxml"));
+    	loader.setControllerFactory(controllerClass -> new ActorViewController(actor));
+    	
+    	try {
+			BorderPane borderPane = loader.load();
+			Scene scene = new Scene(borderPane);
+			
+			stage =  new Stage();
+			
+			stage.initOwner(addButton.getScene().getWindow());
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.setScene(scene);
+			stage.setTitle("View Actor - MoviesFX");
+			
+			stage.showAndWait();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}    	
 	}
 	
 	@FXML

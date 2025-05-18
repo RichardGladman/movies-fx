@@ -16,7 +16,7 @@
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin></Button>
-            <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="View" />
+            <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleViewButton" prefWidth="90.0" text="View" />
             <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleEditButton" prefWidth="90.0" text="Edit" />
             <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleDeleteButton" prefWidth="90.0" text="Delete" />
          </children>
