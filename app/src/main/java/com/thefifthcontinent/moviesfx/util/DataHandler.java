@@ -1,25 +1,25 @@
 package com.thefifthcontinent.moviesfx.util;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import com.thefifthcontinent.moviesfx.model.Actor;
 import com.thefifthcontinent.moviesfx.model.Director;
 import com.thefifthcontinent.moviesfx.model.Movie;
+
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 public class DataHandler
 {
 	private static DataHandler instance;
 
-	private Map<String, Actor> actors;
-	private Map<String, Director> directors;
-	private Map<String, Movie> movies;
+	private ObservableList<Actor> actors;
+	private ObservableList<Director> directors;
+	private ObservableList<Movie> movies;
 	
 	private DataHandler() 
 	{
-		actors = new HashMap<>();
-		directors = new HashMap<>();
-		movies = new HashMap<>();
+		actors = FXCollections.observableArrayList();
+		directors = FXCollections.observableArrayList();
+		movies = FXCollections.observableArrayList();
 	}
 	
 	public static DataHandler getInstance()
@@ -31,17 +31,17 @@ public class DataHandler
 		return instance;
 	}
 	
-	public Map<String, Actor> getActors()
+	public ObservableList<Actor> getActors()
 	{
 		return actors;
 	}
 	
-	public Map<String, Director> getDirectors()
+	public ObservableList<Director> getDirectors()
 	{
 		return directors;
 	}
 	
-	public Map<String, Movie> getMovies()
+	public ObservableList<Movie> getMovies()
 	{
 		return movies;
 	}

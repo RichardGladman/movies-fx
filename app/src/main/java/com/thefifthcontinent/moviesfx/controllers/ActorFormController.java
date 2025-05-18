@@ -31,7 +31,7 @@ public class ActorFormController
 		Actor actor = new Actor(name);
 		
 		if (!name.equals("")) {
-			DataHandler.getInstance().getActors().put(name.toLowerCase(), actor);
+			DataHandler.getInstance().getActors().add(actor);
 		}
 		
 		nameTextField.clear();
