@@ -5,6 +5,7 @@ import java.io.IOException;
 import com.thefifthcontinent.moviesfx.model.Actor;
 import com.thefifthcontinent.moviesfx.util.DataHandler;
 
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -26,7 +27,9 @@ public class ActorController
 	
 	public void initialize()
 	{
-		actorsListView.setItems(DataHandler.getInstance().getActors());
+		SortedList<Actor> sortedList = new SortedList<>(DataHandler.getInstance().getActors(), 
+														(o1, o2) -> o1.getName().compareTo(o2.getName()));
+		actorsListView.setItems(sortedList);
 	}
 	
 	@FXML

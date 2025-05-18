@@ -31,7 +31,7 @@
                   <Insets bottom="10.0" />
                </VBox.margin>
             </HBox>
-            <ListView VBox.vgrow="ALWAYS" />
+            <ListView fx:id="actorsListView" VBox.vgrow="ALWAYS" />
          </children>
          <padding>
             <Insets right="10.0" />
