@@ -21,6 +21,21 @@ public class ActorFormController
 	private Actor actor = null;
 	private String mode = "add";
 	
+	public ActorFormController() {}
+	
+	public ActorFormController(Actor actor, String mode)
+	{
+		this.actor = actor;
+		this.mode = mode;
+	}
+	
+	public void initialize()
+	{
+		if (mode.equals("edit")) {
+			nameTextField.setText(actor.getName());
+		}
+	}
+	
 	@FXML
 	public void handleCloseButton()
 	{
@@ -45,16 +60,5 @@ public class ActorFormController
 		}
 		
 		handleCloseButton();
-	}
-	
-	public void setActor(Actor actor)
-	{
-		this.actor = actor;
-		nameTextField.setText(actor.getName());
-	}
-	
-	public void setMode(String mode)
-	{
-		this.mode = mode;
 	}
 }

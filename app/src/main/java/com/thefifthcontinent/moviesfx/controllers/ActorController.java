@@ -76,12 +76,10 @@ public class ActorController
 		Actor actor = actorsListView.getSelectionModel().getSelectedItem();
     	FXMLLoader loader = new FXMLLoader();
     	loader.setLocation(getClass().getResource("/fxml/actorform.fxml"));
-    	
+    	loader.setControllerFactory(controllerClass -> new ActorFormController(actor, "edit"));
+   	
     	try {
 			GridPane gridPane = loader.load();
-			((ActorFormController)loader.getController()).setActor(actor);
-			((ActorFormController)loader.getController()).setMode("Edit");
-
 			Scene scene = new Scene(gridPane);
 			
 			stage  = new Stage();
