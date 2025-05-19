@@ -118,22 +118,6 @@ public class Movie
 	@Override
 	public String toString()
 	{
-		String data = "%-50s %-10s %-4s %d".formatted(title, category, certificate, runningTime);
-
-		if (actors.size() > 0) {
-			data += "\nActors:" + System.lineSeparator();
-			for (Actor a: actors) {
-				data += a.getName() + System.lineSeparator();
-			}
-		}
-		
-		if (directors.size() > 0) {
-			data += "Directors:" + System.lineSeparator();
-			for (Director d: directors) {
-				data += d.getName() + System.lineSeparator();
-			}
-		}
-		
-		return data;
+		return title;
 	}
 }
