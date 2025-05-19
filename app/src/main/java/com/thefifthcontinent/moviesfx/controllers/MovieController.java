@@ -1,5 +1,7 @@
 package com.thefifthcontinent.moviesfx.controllers;
 
+import java.util.function.Predicate;
+
 import com.thefifthcontinent.moviesfx.model.Movie;
 import com.thefifthcontinent.moviesfx.util.DataHandler;
 
@@ -51,7 +53,21 @@ public class MovieController
 	@FXML
 	public void handleSearchButton()
 	{
+		Movie movie = moviesListView.getSelectionModel().getSelectedItem();
+		Predicate<Movie> searchPredicate = m -> m.getTitle().toLowerCase().contains(searchTextField.getText().trim().toLowerCase());
+		Predicate<Movie> allPredicate = m -> true;
 		
+		if (searchTextField.getText().trim().isEmpty()) {
+			filteredList.setPredicate(allPredicate);
+		} else {
+			filteredList.setPredicate(searchPredicate);
+		}
+		
+		if (filteredList.contains(movie)) {
+			moviesListView.getSelectionModel().select(movie);
+		} else {
+			moviesListView.getSelectionModel().selectFirst();
+		}
 	}
 	
 	@FXML
