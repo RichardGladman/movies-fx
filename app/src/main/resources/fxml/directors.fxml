@@ -8,15 +8,17 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.thefifthcontinent.moviesfx.controllers.DirectorController">
    <right>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="View" />
-            <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="Add" />
-            <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="Edit" />
-            <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="Delete" />
+            <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleAddButton" prefWidth="90.0" text="Add">
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin></Button>
+            <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleViewButton" prefWidth="90.0" text="View" />
+            <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleEditButton" prefWidth="90.0" text="Edit" />
+            <Button maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleDeleteButton" prefWidth="90.0" text="Delete" />
          </children>
       </VBox>
    </right>
@@ -25,14 +27,14 @@
          <children>
             <HBox prefHeight="37.0" prefWidth="480.0" VBox.vgrow="NEVER">
                <children>
-                  <TextField HBox.hgrow="ALWAYS" />
-                  <Button mnemonicParsing="false" text="Search" />
+                  <TextField fx:id="searchTextField" HBox.hgrow="ALWAYS" />
+                  <Button mnemonicParsing="false" onAction="#handleSearchButton" text="Search" />
                </children>
                <VBox.margin>
                   <Insets bottom="10.0" />
                </VBox.margin>
             </HBox>
-            <ListView VBox.vgrow="ALWAYS" />
+            <ListView fx:id="directorsListView" VBox.vgrow="ALWAYS" />
          </children>
          <padding>
             <Insets right="10.0" />
