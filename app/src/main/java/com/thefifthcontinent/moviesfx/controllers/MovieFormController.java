@@ -98,6 +98,7 @@ public class MovieFormController
 		
 		selectedActors.add(selectedActor);
 		deselectedActors.remove(selectedActor);
+		actorsComboBox.getSelectionModel().selectFirst();
 	}
 	
 	@FXML
@@ -110,5 +111,6 @@ public class MovieFormController
 		
 		selectedDirectors.add(selectedDirector);
 		deselectedDirectors.remove(selectedDirector);
+		directorsComboBox.getSelectionModel().selectFirst();
 	}
 }
