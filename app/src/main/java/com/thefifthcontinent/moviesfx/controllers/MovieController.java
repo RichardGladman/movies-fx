@@ -1,6 +1,7 @@
 package com.thefifthcontinent.moviesfx.controllers;
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.function.Predicate;
 
 import com.thefifthcontinent.moviesfx.model.Director;
@@ -13,6 +14,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
@@ -102,7 +104,16 @@ public class MovieController
 	@FXML
 	public void handleDeleteButton()
 	{
+		Movie selectedMovie = moviesListView.getSelectionModel().getSelectedItem();
+		Alert alert = new Alert(AlertType.CONFIRMATION);
+		alert.setTitle("Delete Movie");
+		alert.setHeaderText("Delete movie: " + selectedMovie.getTitle());
+		alert.setContentText("Are you sure? Press OK to confirm or cancel to back out.");
 		
+		Optional<ButtonType> result = alert.showAndWait();
+		if (result.isPresent() && result.get() == ButtonType.OK) {
+			DataHandler.getInstance().getMovies().remove(selectedMovie);
+		}
 	}
 	
 	@FXML
