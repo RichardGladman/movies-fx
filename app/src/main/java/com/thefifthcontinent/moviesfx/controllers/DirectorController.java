@@ -140,7 +140,7 @@ public class DirectorController
 			stage.initOwner(directorsListView.getScene().getWindow());
 			stage.initModality(Modality.APPLICATION_MODAL);
 			stage.setScene(scene);
-			stage.setTitle("View Actor - MoviesFX");
+			stage.setTitle("View Director - MoviesFX");
 			
 			stage.showAndWait();
 		} catch (IOException e) {
