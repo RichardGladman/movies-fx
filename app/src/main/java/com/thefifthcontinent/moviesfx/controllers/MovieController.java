@@ -3,6 +3,7 @@ package com.thefifthcontinent.moviesfx.controllers;
 import java.io.IOException;
 import java.util.function.Predicate;
 
+import com.thefifthcontinent.moviesfx.model.Director;
 import com.thefifthcontinent.moviesfx.model.Movie;
 import com.thefifthcontinent.moviesfx.util.DataHandler;
 
@@ -15,6 +16,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -126,6 +128,27 @@ public class MovieController
 	@FXML
 	public void handleViewButton()
 	{
+		Movie movie = moviesListView.getSelectionModel().getSelectedItem();
+		
+    	FXMLLoader loader = new FXMLLoader();
+    	loader.setLocation(getClass().getResource("/fxml/movieview.fxml"));
+    	loader.setControllerFactory(controllerClass -> new MovieViewController(movie));
+    	
+    	try {
+			BorderPane borderPane = loader.load();
+			Scene scene = new Scene(borderPane);
+			
+			stage =  new Stage();
+			
+			stage.initOwner(moviesListView.getScene().getWindow());
+			stage.initModality(Modality.APPLICATION_MODAL);
+			stage.setScene(scene);
+			stage.setTitle("View Movie - MoviesFX");
+			
+			stage.showAndWait();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}    	
 		
 	}
 	
