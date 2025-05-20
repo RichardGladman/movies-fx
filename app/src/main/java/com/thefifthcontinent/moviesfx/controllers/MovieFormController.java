@@ -35,6 +35,11 @@ public class MovieFormController
 	private Movie movie;
 	private String mode;
 	
+	ObservableList<Actor> deselectedActors;
+	ObservableList<Actor> selectedActors; 
+	ObservableList<Director> deselectedDirectors;
+	ObservableList<Director> selectedDirectors; 
+	
 	public MovieFormController(Movie movie, String mode)
 	{
 		this.movie = movie;
@@ -49,13 +54,13 @@ public class MovieFormController
 		formatComboBox.setItems(FXCollections.observableArrayList(Format.values()));
 		formatComboBox.getSelectionModel().selectFirst();
 		
-		ObservableList<Actor> actors = FXCollections.observableArrayList(DataHandler.getInstance().getActors());
-		SortedList<Actor> sortedActors = new SortedList<>(actors, (o1, o2)-> o1.getName().compareTo(o2.getName()));
+		deselectedActors = FXCollections.observableArrayList(DataHandler.getInstance().getActors());
+		SortedList<Actor> sortedActors = new SortedList<>(deselectedActors , (o1, o2)-> o1.getName().compareTo(o2.getName()));
 		actorsComboBox.setItems(sortedActors);
 		actorsComboBox.getSelectionModel().selectFirst();
 		
-		ObservableList<Director> directors = FXCollections.observableArrayList(DataHandler.getInstance().getDirectors());
-		SortedList<Director> sortedDirectors = new SortedList<>(directors, (o1, o2)-> o1.getName().compareTo(o2.getName()));
+		deselectedDirectors = FXCollections.observableArrayList(DataHandler.getInstance().getDirectors());
+		SortedList<Director> sortedDirectors = new SortedList<>(deselectedDirectors, (o1, o2)-> o1.getName().compareTo(o2.getName()));
 		directorsComboBox.setItems(sortedDirectors);
 		directorsComboBox.getSelectionModel().selectFirst();
 		
@@ -66,11 +71,44 @@ public class MovieFormController
 			certificateTextField.setText(movie.getCertificate());
 			runningTimeTextField.setText("" + movie.getRunningTime());
 			
-			actorsListView.setItems(FXCollections.observableArrayList(movie.getActors()));
-			actors.removeAll(movie.getActors());
+			selectedActors = FXCollections.observableArrayList(movie.getActors());
+			actorsListView.setItems(selectedActors);
+			deselectedActors .removeAll(movie.getActors());
 			
-			directorsListView.setItems(FXCollections.observableArrayList(movie.getDirectors()));
-			directors.removeAll(movie.getDirectors());
+			selectedDirectors = FXCollections.observableArrayList(movie.getDirectors());
+			directorsListView.setItems(selectedDirectors);
+			deselectedDirectors.removeAll(movie.getDirectors());
+		} else {
+			selectedActors = FXCollections.observableArrayList();
+			actorsListView.setItems(selectedActors);
+			
+			selectedDirectors  = FXCollections.observableArrayList();
+			directorsListView.setItems(selectedDirectors);
+			
 		}
+	}
+	
+	@FXML
+	public void handleAddActorButton()
+	{
+		Actor selectedActor = actorsComboBox.getSelectionModel().getSelectedItem();
+		if (selectedActor == null) {
+			return;
+		}
+		
+		selectedActors.add(selectedActor);
+		deselectedActors.remove(selectedActor);
+	}
+	
+	@FXML
+	public void handleAddDirectorsButton()
+	{
+		Director selectedDirector = directorsComboBox.getSelectionModel().getSelectedItem();
+		if (selectedDirector == null) {
+			return;
+		}
+		
+		selectedDirectors.add(selectedDirector);
+		deselectedDirectors.remove(selectedDirector);
 	}
 }
