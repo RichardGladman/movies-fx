@@ -13,6 +13,7 @@ import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -86,6 +87,32 @@ public class MovieFormController
 			directorsListView.setItems(selectedDirectors);
 			
 		}
+	}
+	
+	@FXML
+	public void handleRemoveActorMenuItem()
+	{
+		Actor selectedActor = actorsListView.getSelectionModel().getSelectedItem();
+		if (selectedActor == null) {
+			return;
+		}
+		
+		selectedActors.remove(selectedActor);
+		deselectedActors.add(selectedActor);
+		actorsComboBox.getSelectionModel().selectFirst();
+	}
+	
+	@FXML
+	public void handleRemoveDirectorMenuItem()
+	{
+		Director selectedDirector = directorsListView.getSelectionModel().getSelectedItem();
+		if (selectedDirector == null) {
+			return;
+		}
+		
+		selectedDirectors.remove(selectedDirector);
+		deselectedDirectors.add(selectedDirector);
+		actorsComboBox.getSelectionModel().selectFirst();
 	}
 	
 	@FXML

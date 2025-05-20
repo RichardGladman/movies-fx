@@ -3,8 +3,10 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -41,7 +43,14 @@
       <TextField fx:id="runningTimeTextField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
       <Label text="Running Time" GridPane.rowIndex="4" />
       <Label text="Actors" GridPane.rowIndex="5" />
-      <ListView fx:id="actorsListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+      <ListView fx:id="actorsListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5">
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#handleRemoveActorMenuItem" text="Delete" />
+              </items>
+            </ContextMenu>
+         </contextMenu></ListView>
       <HBox GridPane.columnIndex="2" GridPane.rowIndex="5">
          <children>
             <ComboBox fx:id="actorsComboBox" prefWidth="150.0">
@@ -61,7 +70,14 @@
          </children>
       </HBox>
       <Label text="Directors" GridPane.rowIndex="6" />
-      <ListView fx:id="directorsListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+      <ListView fx:id="directorsListView" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6">
+         <contextMenu>
+            <ContextMenu>
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#handleRemoveActorMenuItem" text="Delete" />
+               </items>
+            </ContextMenu>
+         </contextMenu></ListView>
       <HBox GridPane.columnIndex="2" GridPane.rowIndex="6">
          <children>
             <ComboBox fx:id="directorsComboBox" prefWidth="150.0">
