@@ -74,7 +74,7 @@
          <contextMenu>
             <ContextMenu>
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#handleRemoveActorMenuItem" text="Delete" />
+                  <MenuItem mnemonicParsing="false" onAction="#handleRemoveDirectorMenuItem" text="Delete" />
                </items>
             </ContextMenu>
          </contextMenu></ListView>
@@ -98,12 +98,12 @@
       </HBox>
       <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="2" GridPane.rowIndex="7">
          <children>
-            <Button fx:id="saveButton" maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="Save">
+            <Button fx:id="saveButton" maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleSaveButton" prefWidth="90.0" text="Save">
                <HBox.margin>
                   <Insets right="10.0" />
                </HBox.margin>
             </Button>
-            <Button fx:id="closeButton" maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" prefWidth="90.0" text="Close" />
+            <Button fx:id="closeButton" maxWidth="90.0" minWidth="90.0" mnemonicParsing="false" onAction="#handleCloseButton" prefWidth="90.0" text="Close" />
          </children>
       </HBox>
    </children>

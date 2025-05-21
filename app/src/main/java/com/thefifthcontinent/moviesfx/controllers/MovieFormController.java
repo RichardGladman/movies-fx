@@ -13,7 +13,6 @@ import javafx.collections.transformation.SortedList;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ContextMenu;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 
@@ -139,5 +138,45 @@ public class MovieFormController
 		selectedDirectors.add(selectedDirector);
 		deselectedDirectors.remove(selectedDirector);
 		directorsComboBox.getSelectionModel().selectFirst();
+	}
+	
+	@FXML
+	public void handleSaveButton()
+	{
+		String title = titleTextField.getText().trim();
+		Category category = categoryComboBox.getSelectionModel().getSelectedItem();
+		Format format = formatComboBox.getSelectionModel().getSelectedItem();
+		String certificate = certificateTextField.getText().trim();
+		int runningTime = Integer.parseInt(runningTimeTextField.getText().trim());
+		
+		if (mode.equals("add")) {
+			movie = new Movie(title, category, format, certificate, runningTime);
+			DataHandler.getInstance().getMovies().add(movie);
+		} else {
+			movie.setTitle(title);
+			movie.setCategory(category);
+			movie.setFormat(format);
+			movie.setCertificate(certificate);
+			movie.setRunningTime(runningTime);
+		}
+		
+		//  Simpler to clear and re-add actors and directors
+		movie.getActors().clear();
+		for (Actor actor: selectedActors) {
+			movie.getActors().add(actor);
+		}
+		
+		movie.getDirectors().clear();
+		for (Director director: selectedDirectors) {
+			movie.getDirectors().add(director);
+		}
+		
+		handleCloseButton();
+	}
+	
+	@FXML
+	public void handleCloseButton()
+	{
+		MovieController.getStage().close();
 	}
 }

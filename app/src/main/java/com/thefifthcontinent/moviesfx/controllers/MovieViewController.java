@@ -46,4 +46,10 @@ public class MovieViewController
 			listsVBox.getChildren().add(label);
 		}
 	}
+	
+	@FXML
+	public void handleCloseButton()
+	{
+		MovieController.getStage().close();
+	}
 }
